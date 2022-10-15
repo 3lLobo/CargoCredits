@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "mongodb-realm-cli": "^2.6.2",
+    "realm-cli": "^1.0.2"
+  },
+  "dependencies": {
+    "realm-web": "^1.7.1"
+  }
+}

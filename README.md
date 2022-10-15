@@ -16,6 +16,7 @@ The second part focuses on the frontend. Optimally we deliver a demo workflow fo
 - GoogleMaps API to access users travel history (transportation mode + distance / month).
 - [Chooose](https://www.chooose.today/) API to calculate the carbon offset (saved carbon emission).  
 - MongoDB to store anonymized user-chashout data, no personal data, only a hash to avoid users getting rewarded twice.
+- Mongo Realm for oAuth with Google.
 - NextJs for the WebApp, ReactNative for Android/iOS-App and NestJs for the backend.
 
 

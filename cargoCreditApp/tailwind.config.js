@@ -20,7 +20,8 @@ module.exports = {
         300: '3',
       },
       animation: {
-        'spin-bezier': 'myspin 1s cubic-bezier(0.9, 0.26, 0.97, 1) infinite',
+        'spin-bezier': 'myspin 11s cubic-bezier(0.9, 0.26, 0.97, 1) infinite',
+        'slow-spin': 'spin 56s ease-in-out reverse infinite',
       },
       keyframes: {
         wiggle: {
@@ -57,8 +58,8 @@ module.exports = {
         'washed-blue': '#F0F6FA',
       },
       backgroundImage: {
-        'mybg-light': 'linear-gradient(170deg, #edf0f4, 90%, #B88DFF)',
-        'mybg-dark': 'linear-gradient(170deg, #11002D, 90%, #270067)',
+        'mybg-dark': 'linear-gradient(170deg, #547980  , 90%, #E5FCC2   )',
+        'mybg-light': 'linear-gradient(170deg, #A8E6CE , 90%, #DCEDC2)',
         'hero-pattern': 'url("/hero.svg")',
       },
     },
