@@ -4,9 +4,11 @@ function Landing() {
 
   return (
     <div
-      className="flex justify-center align-middle text-ccDarkText font-black"
+      className="flex justify-center align-middle text-white font-light text-center h-full mt-32 text-3xl"
     >
-      WELCOME TO CARGO CREDITS <br /> CONNECT WITH YOUR WALLET AND START SAVING THE PLANET
+      <p>
+        WELCOME TO CARGO CREDITS <br /> CONNECT WITH YOUR WALLET AND START SAVING THE PLANET
+      </p>
     </div>
   )
 }
