@@ -15,6 +15,7 @@ const ToggleColorMode = () => {
     <div className="flex flex-0 color-snow hover:scale-110 transition ease-in-out duration-500">
       <button
         className="
+        aspect-1
             dark:bg-gray-800 bg-white
             dark:hover:bg-gray-700 hover:bg-gray-100
             dark:border-gray-600 border-gray-300  
@@ -22,9 +23,9 @@ const ToggleColorMode = () => {
         onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
       >
         {theme !== 'light' ? (
-          <MoonIcon className="h-4 w-4 text-gray-500 fill-ccDarkText" />
+          <MoonIcon className=" text-gray-500 fill-ccDarkText" />
         ) : (
-          <SunIcon className="h-4 w-4 text-snow fill-ccDarkText" />
+          <SunIcon className=" text-snow fill-ccDarkText" />
         )}
       </button>
     </div>
