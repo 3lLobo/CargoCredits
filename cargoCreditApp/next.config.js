@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  images: {
+    unoptimized: true,
+  },
+  reactStrictMode: false,
   swcMinify: true,
   experimental: {
     newNextLinkBehavior: true,

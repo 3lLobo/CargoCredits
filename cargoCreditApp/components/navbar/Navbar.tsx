@@ -1,6 +1,6 @@
 import { useEthers } from '@usedapp/core';
 import { ethers } from 'ethers';
-import { useTheme } from 'next-themes';
+// import { useTheme } from 'next-themes';
 import Image from 'next/future/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -12,14 +12,14 @@ import { motion } from 'framer-motion'
 
 const Navbar = () => {
   const { account, library, activate } = useEthers()
-  const { theme } = useTheme()
-  const [loaded, setLoaded] = useState(false)
+  // const { theme } = useTheme()
+  const [loaded, setLoaded] = useState(true)
 
-  useEffect(() => {
-    if (theme) {
-      setLoaded(true)
-    }
-  })
+  // useEffect(() => {
+  //   if (theme) {
+  //     setLoaded(true)
+  //   }
+  // })
 
   // Set up provider if already connected
 
