@@ -2,17 +2,11 @@
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
+  darkMode: 'class',
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
-    './xmtp/**/*.{js,ts,jsx,tsx}',
   ],
-  safelist: [
-    {
-      pattern: /bg-([a-z]+)-(100|200|300|400|600)/,
-    },
-  ],
-  darkMode: ['class'],
   theme: {
     extend: {
       scale: {
@@ -20,7 +14,8 @@ module.exports = {
         300: '3',
       },
       animation: {
-        'spin-bezier': 'myspin 1s cubic-bezier(0.9, 0.26, 0.97, 1) infinite',
+        'spin-bezier': 'myspin 11s cubic-bezier(0.9, 0.26, 0.97, 1) infinite',
+        'slow-spin': 'spin 56s ease-in-out reverse infinite',
       },
       keyframes: {
         wiggle: {
@@ -33,6 +28,13 @@ module.exports = {
         },
       },
       colors: {
+        ccgreen1: '#A8E6CE',
+        ccgreen2: '#45ADA8',
+        ccgreen3: '#547980',
+        white: '#E5FCC2',
+        'gray-100': '#EDE574',
+        ccDarkText: '#2A363B',
+        ccRedError: '#E84A5F',
         blocqpurple: '#B88DFF',
         neonPurple: 'rgba(111,76,255,1.0)',
         navy: '#0b3a53',
@@ -57,9 +59,9 @@ module.exports = {
         'washed-blue': '#F0F6FA',
       },
       backgroundImage: {
-        'mybg-light': 'linear-gradient(170deg, #edf0f4, 90%, #B88DFF)',
-        'mybg-dark': 'linear-gradient(170deg, #11002D, 90%, #270067)',
-        'hero-pattern': 'url("/hero.svg")',
+        'mybg-dark': 'linear-gradient(170deg, #547980  , 90%, #E5FCC2   )',
+        'mybg-light': 'linear-gradient(170deg, #A8E6CE , 90%, #DCEDC2)',
+        // 'hero-pattern': 'url("/hero.svg")',
       },
     },
   },
@@ -67,7 +69,6 @@ module.exports = {
     require('@tailwindcss/typography'),
     require('@tailwindcss/line-clamp'),
     require('@tailwindcss/aspect-ratio'),
-    // require('@tailwindcss/forms'),
     plugin(function ({ addUtilities }) {
       addUtilities({
         '.scrollbar-hide': {
