@@ -1,13 +1,24 @@
+import Image from "next/future/image"
 
 
 function Landing() {
 
+  const css = { maxWidth: '100%', height: 'auto' }
   return (
     <div
-      className="flex justify-center align-middle text-white font-light text-center h-full mt-32 text-3xl"
+      className="flex flex-col justify-center align-middle text-white font-light text-center h-full gap-y-11 text-3xl"
     >
+      <div
+        className="h-40 relative">
+        <Image
+          src={'/Cargo-Credit-FONT.png'}
+          alt='bannerCargo'
+          // css={css}
+          fill
+        />
+      </div>
       <p>
-        WELCOME TO CARGO CREDITS <br /> CONNECT WITH YOUR WALLET AND START SAVING THE PLANET
+        CONNECT YOUR WALLET AND START SAVING THE PLANET
       </p>
     </div>
   )

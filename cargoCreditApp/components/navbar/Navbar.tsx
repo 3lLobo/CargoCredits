@@ -1,7 +1,7 @@
 import { useEthers } from '@usedapp/core';
 import { ethers } from 'ethers';
 import { useTheme } from 'next-themes';
-import Image from 'next/image';
+import Image from 'next/future/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { DropdownAccount, ToggleColorMode } from '.';
@@ -42,21 +42,34 @@ const Navbar = () => {
     <nav className="px-4 py-4">
       <div className="container flex flex-wrap justify-between items-center mx-auto max-w-6xl">
         {loaded ? (
-          <Link href="/">
-            <a>
+          <div
+            className={!account ? "opacity-0" : "opacity-100"}
+          >
+            <Link href="/">
               <Image
                 src="/treeCargo.svg"
-                height={50}
-                width={100}
+                height={80}
+                width={80}
                 alt="cargoTreeicon"
+              // sizes="100vw"
               // className={`filter-logo-${theme}`}
               />
-            </a>
-          </Link>
+              <div
+                className="h-6 relative"
+              >
+                <Image
+                  src={'/Cargo-Credit-FONT.png'}
+                  alt='bannerCargo'
+                  // css={css}
+                  fill
+                />
+              </div>
+            </Link>
+          </div>
         ) : (
           <></>
         )}
-        <div className="flex flex-row space-x-4 align-middle">
+        <div className="flex flex-row gap-x-11 align-middle">
           {account ? (
             <DropdownAccount account={account} />
           ) : (

@@ -1,10 +1,10 @@
-
+import GoogleStats from './GoogleStats'
 
 function CargoDashboard() {
 
   return (
     <div>
-      Hiii
+      <GoogleStats />
     </div>
   )
 }

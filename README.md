@@ -11,7 +11,10 @@ The second part focuses on the frontend. Optimally we deliver a demo workflow fo
 
 ## Tech-Stacq
 
-- Blockchain (Optimism) ERC20 Cargo Credit token deployment
+- Blockchain ([Optimism(https://www.optimism.io/)]) [ERC20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) Cargo Credit token deployment.
+  - Carbon neutral blockchain.
+- Storing data on IPFS
+  - indexes files via CID (hash) therefore avoids duplicates, saves storage and the planet 🌳
 - [Alchemy](https://dashboard.alchemy.com/) API to query users token balance and history.
 - GoogleMaps API to access users travel history (transportation mode + distance / month).
 - [Chooose](https://www.chooose.today/) API to calculate the carbon offset (saved carbon emission).  
@@ -19,6 +22,7 @@ The second part focuses on the frontend. Optimally we deliver a demo workflow fo
 - Mongo Realm for oAuth with Google.
 - NextJs for the WebApp, ReactNative for Android/iOS-App and NestJs for the backend.
 
+- AMADEUS will implement a CargoCredit API which predicts which parts of your journey you can travel by green transport and how many Cargo Credits you will get rewarded for it 🎉 
 
 
 TEAM smartGirlzGreanEarth LFG🚀🚀🚀
