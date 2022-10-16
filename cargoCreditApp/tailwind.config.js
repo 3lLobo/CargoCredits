@@ -2,17 +2,11 @@
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
+  darkMode: 'class',
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
-    './xmtp/**/*.{js,ts,jsx,tsx}',
   ],
-  safelist: [
-    {
-      pattern: /bg-([a-z]+)-(100|200|300|400|600)/,
-    },
-  ],
-  darkMode: ['class'],
   theme: {
     extend: {
       scale: {
@@ -60,7 +54,7 @@ module.exports = {
       backgroundImage: {
         'mybg-dark': 'linear-gradient(170deg, #547980  , 90%, #E5FCC2   )',
         'mybg-light': 'linear-gradient(170deg, #A8E6CE , 90%, #DCEDC2)',
-        'hero-pattern': 'url("/hero.svg")',
+        // 'hero-pattern': 'url("/hero.svg")',
       },
     },
   },
@@ -68,7 +62,6 @@ module.exports = {
     require('@tailwindcss/typography'),
     require('@tailwindcss/line-clamp'),
     require('@tailwindcss/aspect-ratio'),
-    // require('@tailwindcss/forms'),
     plugin(function ({ addUtilities }) {
       addUtilities({
         '.scrollbar-hide': {
