@@ -21,13 +21,13 @@ const ToggleColorMode = () => {
             dark:hover:bg-gray-700 hover:bg-gray-100
             dark:border-gray-600 border-gray-300  
             rounded-full focus:outline-0 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 border p-2"
-        // onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+      // onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
       >
-        {theme !== 'light' ? (
-          <MoonIcon className=" text-gray-500 fill-ccDarkText" />
-        ) : (
+        {/* {theme !== 'light' ? ( */}
+        <MoonIcon className=" text-gray-500 fill-ccDarkText" />
+        {/* ) : (
           <SunIcon className=" text-snow fill-ccDarkText" />
-        )}
+        )} */}
       </button>
     </div>
   )
