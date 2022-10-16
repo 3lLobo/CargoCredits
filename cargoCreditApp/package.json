@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "lint": "next lint"
   },
@@ -27,6 +27,7 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.6.0",
     "realm-web": "^1.7.1",
+    "sharp": "^0.31.1",
     "web3modal": "^1.9.9"
   },
   "devDependencies": {

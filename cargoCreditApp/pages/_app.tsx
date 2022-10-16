@@ -1,7 +1,7 @@
 import { RealmAppProvider } from '@/components/RealmApp'
 import '@/styles/globals.css'
 import realmconfig from "@/constants/realm.json";
-import { ThemeProvider } from 'next-themes';
+// import { ThemeProvider } from 'next-themes';
 import { Layout } from '@/components/layout';
 import { DAppProvider, Localhost, Chain } from '@usedapp/core'
 
@@ -37,7 +37,7 @@ const config: any = {
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <ThemeProvider>
+      {/* <ThemeProvider> */}
         <DAppProvider config={config}>
           <RealmAppProvider appId={realmconfig.appId}>
             <Layout>
@@ -45,7 +45,7 @@ function MyApp({ Component, pageProps }) {
             </Layout>
           </RealmAppProvider>
         </DAppProvider>
-      </ThemeProvider>
+      {/* </ThemeProvider> */}
     </>
   )
 }

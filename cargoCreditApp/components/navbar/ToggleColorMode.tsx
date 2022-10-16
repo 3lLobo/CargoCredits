@@ -1,9 +1,10 @@
 import { SunIcon, MoonIcon } from '@heroicons/react/24/solid';
 import { useState, useEffect } from 'react';
-import { useTheme } from 'next-themes';
+// import { useTheme } from 'next-themes';
 
 const ToggleColorMode = () => {
-  const { theme, setTheme } = useTheme()
+  // const { theme, setTheme } = useTheme()
+  const theme = "dark"
 
   // Handle Hydration mismatch
   const [loaded, setLoaded] = useState(false)
@@ -20,7 +21,7 @@ const ToggleColorMode = () => {
             dark:hover:bg-gray-700 hover:bg-gray-100
             dark:border-gray-600 border-gray-300  
             rounded-full focus:outline-0 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 border p-2"
-        onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+        // onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
       >
         {theme !== 'light' ? (
           <MoonIcon className=" text-gray-500 fill-ccDarkText" />

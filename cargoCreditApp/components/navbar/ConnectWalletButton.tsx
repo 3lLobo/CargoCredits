@@ -2,11 +2,11 @@ import { useState, useEffect, useCallback } from 'react'
 import { useEthers } from '@usedapp/core'
 import Web3Modal from 'web3modal'
 import WalletConnectProvider from '@walletconnect/web3-provider'
-import { useTheme } from 'next-themes'
+// import { useTheme } from 'next-themes'
 import { ethers } from 'ethers'
 
 const ConnectWalletButton = () => {
-  const { theme } = useTheme()
+  // const { theme } = useTheme()
   const { activate, library } = useEthers()
   const [activateError, setActivateError] = useState('')
   // const { error } = useEthers()
@@ -53,12 +53,12 @@ const ConnectWalletButton = () => {
       const newWeb3Modal = new Web3Modal({
         providerOptions,
         cacheProvider: false,
-        theme: theme,
+        theme: "dark",
       })
 
       setWeb3Modal(newWeb3Modal)
     }
-  }, [loaded, theme])
+  }, [loaded])
 
   const connect = useCallback(async () => {
     try {
