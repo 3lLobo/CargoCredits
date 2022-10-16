@@ -49,7 +49,7 @@ const DropdownAccount = (props: DropdownProps) => {
           <div className="py-1">
             <Menu.Item>
               {({ active }) => (
-                <a
+                <Link
                   href="#"
                   className={classNames(
                     active
@@ -64,13 +64,13 @@ const DropdownAccount = (props: DropdownProps) => {
                     aria-hidden="true"
                   />
                   See on Etherscan
-                </a>
+                </Link>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
                 <Link href="/dashboard">
-                  <a
+                  <div
                     className={classNames(
                       active
                         ? 'bg-gray-100 text-gray-900 dark:bg-gray-700 dark:text-gray-100'
@@ -84,7 +84,7 @@ const DropdownAccount = (props: DropdownProps) => {
                       aria-hidden="true"
                     />
                     Dashboard
-                  </a>
+                  </div>
                 </Link>
               )}
             </Menu.Item>

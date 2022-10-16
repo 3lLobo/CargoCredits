@@ -28,6 +28,13 @@ module.exports = {
         },
       },
       colors: {
+        ccgreen1: '#A8E6CE',
+        ccgreen2: '#45ADA8',
+        ccgreen3: '#547980',
+        white: '#E5FCC2',
+        'gray-100': '#EDE574',
+        ccDarkText: '#2A363B',
+        ccRedError: '#E84A5F',
         blocqpurple: '#B88DFF',
         neonPurple: 'rgba(111,76,255,1.0)',
         navy: '#0b3a53',

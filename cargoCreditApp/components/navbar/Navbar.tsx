@@ -5,11 +5,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { DropdownAccount, ToggleColorMode } from '.';
+import { ConnectWalletButton } from '.'
+import { motion } from 'framer-motion'
+
+
 
 const Navbar = () => {
   const { account, library, activate } = useEthers()
   const { theme } = useTheme()
   const [loaded, setLoaded] = useState(false)
+
   useEffect(() => {
     if (theme) {
       setLoaded(true)
@@ -43,7 +48,8 @@ const Navbar = () => {
                 src="/treeCargo.svg"
                 height={50}
                 width={100}
-                className={`filter-logo-${theme}`}
+                alt="cargoTreeicon"
+              // className={`filter-logo-${theme}`}
               />
             </a>
           </Link>
@@ -54,11 +60,19 @@ const Navbar = () => {
           {account ? (
             <DropdownAccount account={account} />
           ) : (
-            <></>
-            //<ConnectWalletButton />
-          )}
-
-          {/* <ToggleColorMode /> */}
+            // <></>
+            <motion.div
+              className="flex justify-center"
+              initial={{ y: 10, opacity: 0, scale: 0.9 }}
+              animate={{ y: 0, opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1, ease: 'easeOut' }}
+            >
+              <ConnectWalletButton />
+            </motion.div>
+          )
+          }
+          <ToggleColorMode />
         </div>
       </div>
     </nav>

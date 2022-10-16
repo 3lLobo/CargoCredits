@@ -21,10 +21,10 @@ const ToggleColorMode = () => {
             rounded-full focus:outline-0 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 border p-2"
         onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
       >
-        {theme === 'light' ? (
-          <MoonIcon className="h-4 w-4 text-gray-500 fill-gray-500" />
+        {theme !== 'light' ? (
+          <MoonIcon className="h-4 w-4 text-gray-500 fill-ccDarkText" />
         ) : (
-          <SunIcon className="h-4 w-4 text-snow fill-snow" />
+          <SunIcon className="h-4 w-4 text-snow fill-ccDarkText" />
         )}
       </button>
     </div>
