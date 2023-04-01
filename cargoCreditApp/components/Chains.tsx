@@ -7,14 +7,14 @@ export const Hyperspace: Chain = {
   chainName: 'Filecoin - Hyperspace testnet',
   isTestChain: true,
   isLocalChain: false,
-  multicallAddress: '0x0000000000000000000000000000000000000000',
+  multicallAddress: null,
   getExplorerAddressLink: (address: string) =>
     `https://hyperspace.filscan.io/address/general?address=${address}`,
   getExplorerTransactionLink: (transactionHash: string) =>
     `https://hyperspace.filscan.io/#/message/${transactionHash}`,
   // Optional parameters:
   rpcUrl: 'https://rpc.ankr.com/filecoin_testnet',
-  blockExplorerUrl: 'https://hyperspace.filscan.io',
+  blockExplorerUrl: 'https://hyperspace.filfox.info/en',
   nativeCurrency: {
     name: 'Filecoin - hyperspace testnet',
     symbol: 'tFIL',

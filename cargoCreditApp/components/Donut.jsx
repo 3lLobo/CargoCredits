@@ -60,7 +60,7 @@ function Donut({ travel, month }) {
         alt="treeCargo"
         width={200}
         height={200}
-        className="absolute z-0 bottom-0 w-80"
+        className="absolute z-0 top-0 w-80"
       />
       <div
         className=" w-full h-full rounded-xl z-0"

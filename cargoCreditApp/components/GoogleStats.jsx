@@ -26,11 +26,11 @@ function GoogleStats() {
 
 
   return (
-    <div className="w-full h-full flex flex-row">
-      <div className=" w-1/2 col-span-1">
-        <div className="mr-auto max-w-xl py-1 px-4 sm:px-6 lg:px-6 lg:py-11">
+    <div className="w-full h-full grid grid-flow-row sm:grid-flow-col gird-cols-3">
+      <div className="col-span-2">
+        <div className="flex flex-col justify-evenly w-full py-1 px-4 sm:px-6 lg:px-6 lg:py-11">
           <div
-            className="flex justify-center w-full"
+            className="flex ml-[15vw] w-full items-center"
           >
             <MonthDrop month={month} setMonth={setMonth} />
           </div>
@@ -80,7 +80,7 @@ function GoogleStats() {
                   ))}
               </ul>
             </div>
-            <div className="space-y-5 sm:space-x-4 my-auto">
+            <div className="space-y-5 sm:space-x-4 flex flex-row">
 
               {(month !== 'Choose a Month!') &&
                 <Donut
@@ -97,7 +97,7 @@ function GoogleStats() {
       {
         (month !== 'Choose a Month!') &&
         <div
-          className="flex w-1/2 ml-auto">
+          className="flex mx-auto col-span-1 w-full">
 
           <ConvertCredits distance={travelStats.filter((el) => {
             if (el.green) {

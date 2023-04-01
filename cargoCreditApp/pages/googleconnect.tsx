@@ -34,8 +34,9 @@ export default function GoogleConnectPage() {
   const [user, setUser] = useState<User>({});
   const [profile, setProfile] = useState<Profile>({});
   const { account, chainId } = useEthers();
-  const etherBalance = useEtherBalance(account);
-  console.log("chainId", etherBalance);
+  console.log("Acc", account);
+  const etherBalance = useEtherBalance(account, Hyperspace);
+  console.log("ballance", etherBalance);
 
   const dispatch = useDispatch();
   const rootState = useSelector((state: any) => state);
@@ -155,15 +156,20 @@ export default function GoogleConnectPage() {
             className="flex flex-col w-full rounded-2xl p-3 mt-11 justify-center items-center"
           >
             <div
-              className="flex flex-row text-center text-lg h-full align-middle items-center justify-center"
+              className="flex flex-col text-center text-lg h-full align-middle items-center justify-center"
             >
               <span
-                className="text-3xl text-cyan-600 mb-6"
-              >Connected to {Hyperspace.chainName} </span>
+                className="mb-1 "
+              >
+                Connected to
+              </span>
+              <span
+                className="text-3xl text-cyan-400 mb-6"
+              >{Hyperspace.chainName} </span>
             </div>
             <span>Account:</span>
             <span
-              className="text-lg text-cyan-600 mb-3"
+              className="text-lg text-cyan-400 mb-3"
             >{account}</span>
             <span
             >Balance:</span>
