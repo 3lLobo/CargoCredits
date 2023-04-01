@@ -12,16 +12,6 @@ import { motion } from 'framer-motion'
 
 const Navbar = () => {
   const { account, library, activate } = useEthers()
-  // const { theme } = useTheme()
-  const [loaded, setLoaded] = useState(true)
-
-  // useEffect(() => {
-  //   if (theme) {
-  //     setLoaded(true)
-  //   }
-  // })
-
-  // Set up provider if already connected
 
   useEffect(() => {
     const { ethereum } = window

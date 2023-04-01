@@ -4,26 +4,24 @@ import Web3Modal from 'web3modal'
 import WalletConnectProvider from '@walletconnect/web3-provider'
 // import { useTheme } from 'next-themes'
 import { ethers } from 'ethers'
+import { Hyperspace } from '../Chains'
 
 const ConnectWalletButton = () => {
   // const { theme } = useTheme()
-  const { activate, library } = useEthers()
+  const { activate, library, account, chainId, switchNetwork } = useEthers()
   const [activateError, setActivateError] = useState('')
-  // const { error } = useEthers()
-  //   useEffect(() => {
-  //     if (error) {
-  //       setActivateError(error.message)
-  //     }
-  //   }, [error])
 
-  // TODO: Manage case where user does not have a wallet
-  //   const [hasMetamask, setHasMetamask] = useState<boolean>(false)
+  useEffect(() => {
+    async function checkNetwork() {
+      if (chainId !== Hyperspace.chainId) {
+        await switchNetwork(Hyperspace.chainId)
+      }
+    }
+    if (chainId) {
+      checkNetwork()
+    }
+  }, [chainId])
 
-  //   useEffect(() => {
-  //     if (typeof window.ethereum !== "undefined") {
-  //       setHasMetamask(true)
-  //     }
-  //   })
 
   // Handle Hydration mismatch
   const [loaded, setLoaded] = useState(false)
