@@ -1,25 +1,36 @@
 import { Navbar } from '../navbar';
 import Head from 'next/head';
+import Image from 'next/image';
 
 export default function Layout(props: any) {
 
   return (
     <>
       <div
-        className='flex flex-col bg-mybg-light w-screen h-screen flex-nowrap flex-grow-0 scrollbar-hide'
       >
-        <div
-          className="absolute right-10 bottom-3 bg-[url('/treeCargo.svg')] w-80 h-80 opacity-10 animate-slow-spin bg-contain bg-no-repeat"
-        />
+        {/* <div
+          className="absolute right-10 bottom-3 bg-[url('/treeCargo.svg')] w-80 h-80 opacity-100 animate-slow-spin bg-contain bg-no-repeat"
+        /> */}
         <Head>
           <title>Cargo Credits</title>
           <meta name="description" content="CargoCredits let you offset carbon!" />
           <link rel="icon" type="image/svg+xml" href="/treeCargo.svg" />
         </Head>
-        <Navbar />
         <main
-          className="mx-11"
+          className='flex flex-col bg-mybg-light w-screen h-screen scrollbar-hide overflow-clip'
         >
+          <div
+            className="absolute  w-[30vh] aspect-1 opacity-30 animate-slow-spin flex overflow-clip "
+          >
+            <Image
+              src={'/treeCargo.svg'}
+              alt="tree"
+              placeholder='blur'
+              blurDataURL='/treeCargo.svg'
+              fill
+            />
+          </div>
+          <Navbar />
           {props.children}
         </main>
       </div>

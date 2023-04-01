@@ -1,4 +1,4 @@
-import Image from "next/future/image"
+import Image from "next/image"
 import { useState } from "react"
 import MonthDrop from './MonthDrop'
 import dynamic from 'next/dynamic'
@@ -53,7 +53,7 @@ function GoogleStats() {
 
 
   return (
-    <div className="bg-white w-full rounded-lg text-charcoal mb-11 flex flex-row">
+    <div className="w-full h-full flex flex-row">
       <div className=" w-1/2 col-span-1">
         <div className="mr-auto max-w-xl py-1 px-4 sm:px-6 lg:px-6 lg:py-11">
           <div

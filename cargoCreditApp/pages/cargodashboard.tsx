@@ -1,24 +1,25 @@
+
+
 import CargoDashboard from '@/components/CargoDashboard'
-import Landing from '@/components/Landing'
 import { useEthers } from '@usedapp/core'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
-export default function Home() {
+export default function CargoDashboardPage() {
 
   const { account } = useEthers()
-
   const router = useRouter()
-
   useEffect(() => {
-    if (account) {
-      router.push('/cargodashboard')
+    if (!account) {
+      router.push('/')
     }
   }, [account])
 
   return (
-    <>
-      <Landing />
-    </>
+    <div
+      className="flex flex-col h-[50vh] mt-[25vh] mx-6 rounded-xl shadow-2xl text-charcoal bg-white"
+    >
+      <CargoDashboard />
+    </div>
   )
 }
