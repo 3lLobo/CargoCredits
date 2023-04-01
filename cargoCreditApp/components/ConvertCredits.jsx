@@ -8,8 +8,8 @@ export default function ConvertCredits({ month, distance }) {
 
   const ALGORITHM = 1 / 201
 
-  const sum = [1, 2, 3].reduce((partialSum, a) => partialSum + a, 0) * ALGORITHM;
   const { account } = useEthers()
+  // TODO: get balance from contract
   const [balance, setBalance] = useState()
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function ConvertCredits({ month, distance }) {
         {`Redeem your credits for ${month}`}
         <button
           className="w-50 text-white bg-ccgreen2 hover:bg-ccgreen3 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-ccgreen2 dark:focus:ring-ccgreen3">
-          {sum}
+          {` ${distance * ALGORITHM} CGO`}
         </button>
       </div>
       <div

@@ -27,6 +27,11 @@ module.exports = {
           to: { transform: 'rotate(360deg)' },
         },
       },
+      fontFamily: {
+        montserrat: ['Montserrat', 'sans-serif'],
+        roboto: ['Roboto', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
+      },
       colors: {
         ccgreen1: '#A8E6CE',
         ccgreen2: '#45ADA8',
@@ -67,7 +72,6 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/typography'),
-    require('@tailwindcss/line-clamp'),
     require('@tailwindcss/aspect-ratio'),
     plugin(function ({ addUtilities }) {
       addUtilities({

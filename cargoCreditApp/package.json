@@ -19,6 +19,7 @@
     "@walletconnect/web3-provider": "^1.8.0",
     "alchemy-sdk": "^2.6.2",
     "chart.js": "^4.2.1",
+    "clsx": "^1.2.1",
     "ethers": "^5",
     "framer-motion": "^10.10.0",
     "next": "13.2.4",

@@ -17,7 +17,7 @@ export default function CargoDashboardPage() {
 
   return (
     <div
-      className="flex flex-col h-[50vh] mt-[25vh] mx-6 rounded-xl shadow-2xl text-charcoal bg-white"
+      className="font-poppins flex flex-col h-[50vh] mt-[25vh] mx-6 rounded-xl shadow-2xl text-charcoal bg-white pb-6"
     >
       <CargoDashboard />
     </div>
