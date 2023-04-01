@@ -1,17 +1,19 @@
-import { useEthers } from '@usedapp/core';
+import { useEthers, } from '@usedapp/core';
 import { ethers } from 'ethers';
-// import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, } from 'react';
 import { DropdownAccount, ToggleColorMode } from '.';
 import { ConnectWalletButton } from '.'
 import { motion } from 'framer-motion'
+import { Hyperspace } from '../Chains';
+import { useRouter } from 'next/router';
 
 
 
 const Navbar = () => {
-  const { account, library, activate } = useEthers()
+  const { account, library, activate, chainId, switchNetwork } = useEthers()
+  const router = useRouter()
 
   useEffect(() => {
     const { ethereum } = window
@@ -27,6 +29,27 @@ const Navbar = () => {
     }
     checkMetaMaskConnected()
   }, [library])
+
+  useEffect(() => {
+    async function checkNetwork() {
+      if (chainId !== Hyperspace.chainId) {
+        await switchNetwork(Hyperspace.chainId)
+      }
+    }
+    if (chainId) {
+      checkNetwork()
+    }
+  }, [chainId])
+
+  useEffect(() => {
+    if (!account) {
+      const currentPath = router.pathname
+      if (currentPath !== '/') {
+        router.push('/')
+      }
+    }
+  }, [account])
+
 
   return (
     <nav className="px-4 py-4 w-full h-fit flex flex-row justify-end ">

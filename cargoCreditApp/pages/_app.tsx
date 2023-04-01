@@ -3,6 +3,7 @@ import '@/styles/globals.css'
 import { Layout } from '@/components/layout';
 import { DAppProvider, Localhost, Chain, Config, Goerli } from '@usedapp/core'
 import { Hyperspace } from '@/components/Chains';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 
 
@@ -21,9 +22,13 @@ function MyApp({ Component, pageProps }) {
     <>
       {/* <ThemeProvider> */}
       <DAppProvider config={config}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <GoogleOAuthProvider
+          clientId='256813757677-7hg6m1c6pqg3tvenlbhha3736bt55am2.apps.googleusercontent.com'
+        >
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </GoogleOAuthProvider>
       </DAppProvider>
       {/* </ThemeProvider> */}
     </>

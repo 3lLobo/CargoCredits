@@ -4,7 +4,7 @@ import { Chain } from "@usedapp/core";
 
 export const Hyperspace: Chain = {
   chainId: 3141,
-  chainName: 'Filecoin - Hyperspce testnet',
+  chainName: 'Filecoin - Hyperspace testnet',
   isTestChain: true,
   isLocalChain: false,
   multicallAddress: '0x0000000000000000000000000000000000000000',
