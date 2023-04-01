@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useEtherBalance, useEthers } from "@usedapp/core";
 import { Hyperspace } from "@/components/Chains";
 import { formatEther } from "ethers/lib/utils";
+import { motion } from "framer-motion";
 
 interface User {
   access_token?: string;
@@ -73,74 +74,111 @@ export default function GoogleConnectPage() {
 
   return (
     <div
-      className=" h-[50vh] mt-[25vh] mx-6 p-6 rounded-xl shadow-2xl font-semibold text-slate-950 bg-white montserrat text-left grid grid-flow-col grid-cols-2 gap-4"
+      className="flex flex-col-reverse justify-center items-center w-full px-6"
     >
       <div
-        className="flex flex-col w-full outline outline-2 outline-ipfsgreen-muted outline-offset-2 outline-offset-ipfsgreen-muted rounded-2xl p-3 justify-center items-center"
+        className=" h-[50vh] mt-24 mx-6 p-6 rounded-xl shadow-2xl font-semibold text-slate-950 bg-white font-montserrat text-left grid grid-flow-col grid-cols-2 gap-4 w-full"
       >
-        {profile.id ? (
-          <>
-            <div
-            >
-              <Image
-                className="flex rounded-full w-20 h-20 aspect-1 mb-6 "
-                src={profile.picture}
-                alt="user image"
-                width={240}
-                height={240}
-              />
-            </div>
+        <div
+          className="flex flex-col w-full outline outline-2 outline-ipfsgreen-muted outline-offset-2 outline-offset-ipfsgreen-muted rounded-2xl p-3 justify-center items-center"
+        >
+          {profile.id ? (
+            <>
+              <div
+              >
+                <Image
+                  className="flex rounded-full w-20 h-20 aspect-1 mb-6 "
+                  src={profile.picture}
+                  alt="user image"
+                  width={240}
+                  height={240}
+                />
+              </div>
 
-            {/* <h3>User Logged in</h3> */}
-            <p>{profile.name}</p>
-            <p>{profile.email}</p>
-            <br />
+              {/* <h3>User Logged in</h3> */}
+              <p>{profile.name}</p>
+              <p>{profile.email}</p>
+              <br />
+              <button
+                className="rounded-full bg-slate-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-slate-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-600 w-fit self-center"
+                onClick={logOut}
+              >
+                Log out
+              </button>
+            </>
+          ) : (
             <button
-              className="rounded-full bg-slate-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-slate-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-600 w-fit self-center"
-              onClick={logOut}
+              type="button"
+              className="rounded-full bg-slate-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-slate-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-600 w-fit self-center flex flex-row"
+              onClick={() => login()}
             >
-              Log out
+              <div
+                className="flex flex-row text-center text-lg h-full align-middle items-center justify-center"
+              >
+                Sign in with
+              </div>
+              <Image
+                className=" rounded-full w-11 h-11 aspect-1 ml-2"
+                src="https://wallpapercave.com/wp/wp2860517.jpg"
+                alt="googleLogo"
+                width={100}
+                height={100}
+              />
             </button>
-          </>
-        ) : (
-          <button
-            type="button"
-            className="rounded-full bg-slate-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-slate-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-600 w-fit self-center flex flex-row"
-            onClick={() => login()}
+          )}
+        </div>
+        <div
+          className="flex flex-col w-full outline outline-2 outline-ipfsgreen-muted outline-offset-2 outline-offset-ipfsgreen-muted rounded-2xl p-3 justify-center items-center"
+        >
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: account ? 1 : 0 }}
+            transition={{ duration: '0.5' }}
+            className="flex flex-col w-full rounded-2xl p-3 mt-11 justify-center items-center"
           >
             <div
               className="flex flex-row text-center text-lg h-full align-middle items-center justify-center"
             >
-              Sign in with
+              <span
+                className="text-3xl text-cyan-600 mb-6"
+              >Connected to {Hyperspace.chainName} </span>
             </div>
-            <Image
-              className=" rounded-full w-11 h-11 aspect-1 ml-2"
-              src="https://wallpapercave.com/wp/wp2860517.jpg"
-              alt="googleLogo"
-              width={100}
-              height={100}
-            />
-          </button>
-        )}
-      </div>
-      <div
-        className="flex flex-col w-full outline outline-2 outline-ipfsgreen-muted outline-offset-2 outline-offset-ipfsgreen-muted rounded-2xl p-3 justify-center items-center"
+            <span>Account:</span>
+            <span
+              className="text-lg text-cyan-600 mb-3"
+            >{account}</span>
+            <span
+            >Balance:</span>
+            <span
+              className="text-lg text-cyan-600 mb-3"
+            > {Number(etherBalance) || '❓'}</span>
+
+
+          </motion.div>
+        </div>
+        {/* If both connected and logged in, show button to continue to dashboard */}
+      </div >
+
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: (profile.id && account) ? 1 : 0 }}
+        transition={{ duration: '0.5' }}
+        className="flex flex-col w-full rounded-2xl p-3 mt-11 justify-center items-center"
       >
-        {account &&
-          <div>
-            <div
-              className="flex flex-row text-center text-lg h-full align-middle items-center justify-center"
-            >
-              <>Connected to {Hyperspace.chainName} </>
-            </div>
-            <p>Account: {account}</p>
-            <p>Balance: {Number(etherBalance) || '❓'}</p>
-
-
+        <button
+          type="button"
+          className="rounded-full bg-slate-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-slate-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-600 w-fit self-center flex flex-row"
+          onClick={() => router.push('/cargodashboard')}
+        >
+          <div
+            className="flex flex-row text-center text-lg h-full align-middle items-center justify-center"
+          >
+            Continue to Dashboard
           </div>
-        }
-      </div>
+        </button>
+      </motion.div>
 
-    </div>
+    </div >
   );
 }

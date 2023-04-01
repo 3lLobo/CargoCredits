@@ -69,7 +69,7 @@ const DropdownAccount = (props: DropdownProps) => {
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <Link href="/dashboard">
+                <Link href="/googleconnect">
                   <div
                     className={classNames(
                       active
@@ -83,7 +83,7 @@ const DropdownAccount = (props: DropdownProps) => {
                     dark:text-gray-300 group-hover:text-gray-500 dark:group-hover:text-gray-100"
                       aria-hidden="true"
                     />
-                    Dashboard
+                    Profile Page
                   </div>
                 </Link>
               )}
