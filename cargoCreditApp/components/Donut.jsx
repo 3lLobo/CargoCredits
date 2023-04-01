@@ -1,24 +1,30 @@
 import { Doughnut, defaults } from 'react-chartjs-2';
-import { Chart, ArcElement } from 'chart.js'
-Chart.register(ArcElement);
+import { Chart as ChartJS, ArcElement, Tooltip } from "chart.js";
+import Image from 'next/image';
+
+
+ChartJS.register(ArcElement, Tooltip);
 
 // defaults.global.tooltips.enabled = true
 // defaults.global.legend.position = 'bottom'
 
 function Donut({ travel, month }) {
 
+  console.log("Traveeel", travel)
+
   const data = {
-    labels: travel.map((el) => el.transport),
+    labels: travel
+      .filter((ele) => ele.distance !== 0)
+      .map((el) => el.transport),
     datasets: [
       {
-        label: 'distance',
+        label: 'Distance',
         data: travel.map((el) => el.distance.filter(
           (ele) => ele.month === month.slice(0, 3)
         )
           .filter((ele) => ele.distance !== 0)
           .map((ele) => {
             const ret = Math.log(ele.distance)
-            console.log("RET", ret)
             return ret
           })[0]
         ),
@@ -47,29 +53,42 @@ function Donut({ travel, month }) {
 
   return (
     <div
-      className="flex flex-col items-center justify-center -m-6 rounded-xl bg-[url('/treeCargo.svg')] bg-no-repeat bg-contain  bg-opacity-25"
+      className="relative flex flex-col items-center justify-center -m-6 rounded-xl bg-no-repeat bg-contain  bg-opacity-25"
     >
-      <Doughnut
-        data={data}
-        redraw
-        options={{
-          // maintainAspectRatio: false,
-          scales: {
-            yAxes: [
-              {
-                ticks: {
-                  beginAtZero: true,
-                },
-              },
-            ],
-          },
-          legend: {
-            labels: {
-              fontSize: 11,
-            },
-          },
-        }}
+      <Image
+        src="/treeCargo.svg"
+        alt="treeCargo"
+        width={200}
+        height={200}
+        className="absolute z-0 bottom-0 w-80"
       />
+      <div
+        className=" w-full h-full rounded-xl z-0"
+      >
+        <Doughnut
+          data={data}
+          redraw
+          options={{
+            // maintainAspectRatio: false,
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    beginAtZero: true,
+                  },
+                },
+              ],
+            },
+            legend: {
+              position: 'left',
+              labels: {
+                usePointStyle: true,
+                fontSize: 11,
+              },
+            },
+          }}
+        />
+      </div>
     </div>
   )
 }

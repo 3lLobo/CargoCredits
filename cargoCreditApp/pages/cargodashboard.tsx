@@ -1,19 +1,23 @@
 
 
 import CargoDashboard from '@/components/CargoDashboard'
+import { selectIsLoggedIn } from '@/redux/GoogleSlice'
 import { useEthers } from '@usedapp/core'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 
 export default function CargoDashboardPage() {
 
   const { account } = useEthers()
   const router = useRouter()
+  const rootStore = useSelector((state: any) => state)
+  const isLoggedIn = selectIsLoggedIn(rootStore as any)
   useEffect(() => {
-    if (!account) {
+    if (!isLoggedIn) {
       router.push('/')
     }
-  }, [account])
+  }, [isLoggedIn])
 
   return (
     <div

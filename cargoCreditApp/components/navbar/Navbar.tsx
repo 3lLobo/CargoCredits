@@ -53,27 +53,27 @@ const Navbar = () => {
 
   return (
     <nav className="px-4 py-4 w-full h-fit flex flex-row justify-end ">
-      <div className="flex flex-row gap-x-11 justify-end h-10">
-        {/* <div className="flex flex-row gap-x-11 w-full justify-end"> */}
-        {account ? (
-          <DropdownAccount account={account} />
-        ) : (
-          // <></>
-          <motion.div
-            className="flex justify-end"
-            initial={{ y: 10, opacity: 0, scale: 0.9 }}
-            animate={{ y: 0, opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1, ease: 'easeOut' }}
-          >
-            <ConnectWalletButton />
-          </motion.div>
-        )
-        }
-        <ToggleColorMode />
-        {/* </div> */}
+      <div className="flex flex-row gap-x-11 justify-end h-10 align-middle">
+        <div className="flex flex-row gap-x-11 w-full justify-end  mt-3">
+          {account ? (
+            <DropdownAccount account={account} />
+          ) : (
+            // <></>
+            <motion.div
+              className="flex justify-end"
+              initial={{ y: 10, opacity: 0, scale: 0.9 }}
+              animate={{ y: 0, opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1, ease: 'easeOut' }}
+            >
+              <ConnectWalletButton />
+            </motion.div>
+          )
+          }
+          {/* <ToggleColorMode /> */}
+        </div>
         <motion.div
-          className="flex flex-row gap-x-6 w-full justify-end"
+          className="flex flex-row gap-x-6 w-full justify-end "
           variants={{
             hidden: { opacity: 0, x: -100 },
             visible: { opacity: 1, x: 0 },
@@ -86,8 +86,8 @@ const Navbar = () => {
           <Link href="/">
             <Image
               src="/treeCargo.svg"
-              height={80}
-              width={80}
+              height={69}
+              width={69}
               alt="cargoTreeicon"
             />
             <div

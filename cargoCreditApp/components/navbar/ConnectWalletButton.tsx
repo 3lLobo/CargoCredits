@@ -5,6 +5,7 @@ import WalletConnectProvider from '@walletconnect/web3-provider'
 // import { useTheme } from 'next-themes'
 import { ethers } from 'ethers'
 import { Hyperspace } from '../Chains'
+import Image from 'next/image'
 
 const ConnectWalletButton = () => {
   // const { theme } = useTheme()
@@ -71,8 +72,26 @@ const ConnectWalletButton = () => {
   if (!loaded) return null
 
   return (
-    <button className="w-36 text-white bg-ccgreen2 hover:bg-ccgreen3 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-ccgreen2 dark:focus:ring-ccgreen3 line-clamp-1" onClick={connect}>
-      Connect Wallet
+    <button
+      className="container w-52 h-11 text-white bg-ccgreen2 hover:bg-ccgreen3 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-ccgreen2 dark:focus:ring-ccgreen3 line-clamp-1 grid grid-flow-col gap-2 grid-cols-4 "
+      onClick={connect}
+    >
+      <div
+        className="relative w-ful col-span-1 flex justify-center items-center align-middle h-full -my-1 bg-cyan-200 hover:bg-cyan-100 rounded-full"
+      >
+        <Image
+          // className='absolute scale-300'
+          src="/filecoin_cool.png"
+          alt="Filecoin Logo"
+          width={400}
+          height={400}
+        />
+      </div >
+      <span
+        className=" flex ml-2 h-8 truncate col-span-3"
+      >
+        Connect Wallet
+      </span>
     </button>
   )
 }

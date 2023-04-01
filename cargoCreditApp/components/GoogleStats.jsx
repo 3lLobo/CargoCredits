@@ -83,7 +83,12 @@ function GoogleStats() {
             <div className="space-y-5 sm:space-x-4 my-auto">
 
               {(month !== 'Choose a Month!') &&
-                <Donut travel={travelStats} month={month} />
+                <Donut
+                  travel={travelStats.filter((ele) => ele.distance.filter(
+                    (el) => el.month === month.slice(0, 3)
+                  ).map((el) => el.distance)[0] !== 0)}
+                  month={month}
+                />
               }
             </div>
           </motion.div>

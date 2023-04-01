@@ -2,9 +2,15 @@ import { useEffect } from "react";
 import { getCargoCreditBalance } from '@/lib/alchemyHelpers'
 import { useEthers } from '@usedapp/core'
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { selectRedeemedMonths } from "@/redux/GoogleSlice";
+import { formatEther, parseEther } from "ethers/lib/utils";
 
 
 export default function ConvertCredits({ month, distance }) {
+  const dispacth = useDispatch();
+  const rootState = useSelector((state) => state);
+  const redeemedMoths = selectRedeemedMonths(rootState);
 
   const ALGORITHM = 1 / 201
 
@@ -18,7 +24,11 @@ export default function ConvertCredits({ month, distance }) {
         let bal
         try {
           bal = await getCargoCreditBalance(account)
-        } catch {
+          bal = formatEther(bal)
+          bal = Number(bal)
+          console.log("balance", bal)
+        } catch (error) {
+          console.log("error", error)
           bal = "1"
         }
         // console.log("🚀 ~ file: ConvertCredits.jsx ~ line 16 ~ getBalance ~ bal", bal)

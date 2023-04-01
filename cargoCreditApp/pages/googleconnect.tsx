@@ -7,6 +7,8 @@ import { useEtherBalance, useEthers } from "@usedapp/core";
 import { Hyperspace } from "@/components/Chains";
 import { formatEther } from "ethers/lib/utils";
 import { motion } from "framer-motion";
+import { selectIsLoggedIn, selectProfileData, selectUserData, setProfileData, setUserData } from "@/redux/GoogleSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 interface User {
   access_token?: string;
@@ -35,8 +37,18 @@ export default function GoogleConnectPage() {
   const etherBalance = useEtherBalance(account);
   console.log("chainId", etherBalance);
 
+  const dispatch = useDispatch();
+  const rootState = useSelector((state: any) => state);
+  const isLoggedIn = selectIsLoggedIn(rootState as any);
+
+
+  function handleLogin(userData: any) {
+    setUser(userData);
+    dispatch(setUserData(userData));
+  }
+
   const login = useGoogleLogin({
-    onSuccess: (codeResponse) => setUser(codeResponse),
+    onSuccess: (codeResponse) => handleLogin(codeResponse),
     onError: (error) => console.log('Login Failed:', error)
   });
 
@@ -53,6 +65,9 @@ export default function GoogleConnectPage() {
           .then((res) => {
             console.log(res.data);
             setProfile(res.data);
+            dispatch(
+              setProfileData(res.data)
+            );
           })
           .catch((err) => console.log(err));
       }
@@ -60,9 +75,12 @@ export default function GoogleConnectPage() {
     [user]
   );
 
+  // if profile still in store, then sync.
+  const storeProfile = selectProfileData(rootState as any);
   useEffect(() => {
-    if (profile) {
-      // router.push('/cargodashboard');
+    if (isLoggedIn) {
+      console.log("Syncing profile from store", storeProfile);
+      setProfile(storeProfile);
     }
   }, [profile]);
 
