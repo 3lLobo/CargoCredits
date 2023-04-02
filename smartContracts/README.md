@@ -15,7 +15,23 @@ yarn remixd -s . --remix-ide https://remix.ethereum.org
 yarn hardhat test
 ```
 
-## Token 
+## Token on Filecoin Hyperspace
+
+- Decimals: `18`
+- Supply: `1000000000000000000000000`
+- One CarbonCredit: `1000000000000000000`
+- Token-address: `0x964d176Cf1641CF4d73E44e4382DA48027346Eb7`
+- Token-master: `0x79a838a70bf9c690baf1f5e10de57c2c1f50e371`
+
+### Calldata
+
+Balance of <0xacount>:
+```
+0x70a08231000000000000000000000000<account>
+```
+
+
+## Token on Optimism Goerli
 
 Decimals: `18`
 
