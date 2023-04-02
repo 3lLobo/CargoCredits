@@ -32,6 +32,5 @@ export async function transferCargoCredit(
   const contract = new ethers.Contract(TOKEN_ADDRESS, ccAbi, wallet);
   const tx = await contract.transfer(addressTo, amount, { from: addressFrom });
   await tx.wait();
-
   return tx;
 }
