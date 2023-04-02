@@ -1,12 +1,12 @@
-import { HardhatUserConfig } from 'hardhat/config'
-import 'hardhat-deploy'
-import 'hardhat-deploy-ethers'
-import '@typechain/hardhat'
+import { HardhatUserConfig } from "hardhat/config";
+import "hardhat-deploy";
+import "hardhat-deploy-ethers";
+import "@typechain/hardhat";
 
-import '@nomicfoundation/hardhat-toolbox'
-require("dotenv").config()
+import "@nomicfoundation/hardhat-toolbox";
+require("dotenv").config();
 
-const PRIVATE_KEY: string = process.env.PRIVATE_HYPERSPACE_KEY || ""
+const PRIVATE_KEY: string = process.env.PRIVATE_HYPERSPACE_KEY || "";
 /** @type import('hardhat/config').HardhatUserConfig */
 const config: HardhatUserConfig = {
   solidity: {
@@ -38,6 +38,6 @@ const config: HardhatUserConfig = {
     cache: "./cache",
     artifacts: "./artifacts",
   },
-}
+};
 
-export default config
+export default config;

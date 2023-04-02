@@ -4,7 +4,7 @@ import { ethers } from "ethers";
 // Setup
 // TODO: set Filecoin API key
 const settings = {
-  apiKey: "VH2FOlf7nZwwviTeSVh99RxHLwEVHbze",
+  apiKey: process.env.NEXT_PUBLIC_ALCHEMY,
   network: Network.OPT_GOERLI,
 };
 const alchemy = new Alchemy(settings);
