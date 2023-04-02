@@ -34,14 +34,18 @@ export default function ConvertCredits({ month, distance }) {
       {
         address: account,
         amount: String(distance * ALGORITHM),
-      }).then((res) => {
-        console.log("res", res);
-        dispatch(setRedeemedMonths(month));
-        setIsRedeeming(false);
-      }).catch((err) => {
-        console.log("error: ", err);
-        setIsRedeeming(false);
-      });
+      },
+      {
+        withCredentials: true,
+      },
+    ).then((res) => {
+      console.log("res", res);
+      dispatch(setRedeemedMonths(month));
+      setIsRedeeming(false);
+    }).catch((err) => {
+      console.log("error: ", err);
+      setIsRedeeming(false);
+    });
   }
 
   const ALGORITHM = 1 / 201;
