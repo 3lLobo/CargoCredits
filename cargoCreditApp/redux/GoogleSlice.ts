@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState, AppThunk } from './store';
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState, AppThunk } from "./store";
 
 export interface GoogleState {
   userData: any;
@@ -16,7 +16,7 @@ const initialState: GoogleState = {
 };
 
 export const googleSlice = createSlice({
-  name: 'googleslice',
+  name: "googleslice",
   initialState,
   reducers: {
     setUserData: (state, action: PayloadAction<any>) => {
@@ -43,16 +43,23 @@ export const googleSlice = createSlice({
       state.userData = {};
       state.profileData = {};
       state.isLoggenIn = false;
-    }
+    },
   },
 });
 
-export const { setUserData, setProfileData, resetGoogleData, setRedeemedMonths } = googleSlice.actions;
+export const {
+  setUserData,
+  setProfileData,
+  resetGoogleData,
+  setRedeemedMonths,
+} = googleSlice.actions;
 
 export const selectUserData = (state: RootState) => state.googleslice.userData;
-export const selectProfileData = (state: RootState) => state.googleslice.profileData;
-export const selectIsLoggedIn = (state: RootState) => state.googleslice.isLoggenIn;
-export const selectRedeemedMonths = (state: RootState) => state.googleslice.redeemedMonths;
-
+export const selectProfileData = (state: RootState) =>
+  state.googleslice.profileData;
+export const selectIsLoggedIn = (state: RootState) =>
+  state.googleslice.isLoggenIn;
+export const selectRedeemedMonths = (state: RootState) =>
+  state.googleslice.redeemedMonths;
 
 export default googleSlice.reducer;

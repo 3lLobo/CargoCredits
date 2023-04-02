@@ -1,23 +1,31 @@
-import { Fragment } from 'react'
-import { Menu, Transition } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import { useState } from 'react'
+import { Fragment } from "react";
+import { Menu, Transition } from "@headlessui/react";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { useState } from "react";
 
-const allMonth = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+const allMonth = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
-
-
 export default function MonthDrop({ month, setMonth }) {
-
-
   return (
     <Menu as="div" className="relative inline-block text-center ">
-      <div
-        className='flex flex-col'>
+      <div className="flex flex-col">
         <h2 className=" font-semibold mb-3">YOUR STATS FOR </h2>
         <Menu.Button className="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4  text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-ccDarkText-500 focus:ring-offset-2 focus:ring-offset-gray-100">
           {month}
@@ -38,27 +46,27 @@ export default function MonthDrop({ month, setMonth }) {
           <div className="py-1">
             {allMonth.map((month) => {
               return (
-                <Menu.Item
-                  key={month + 'name'}
-                >
+                <Menu.Item key={month + "name"}>
                   {({ active }) => (
                     <button
                       value={month}
-                      onClick={(e) => { setMonth(e.target.value) }}
+                      onClick={(e) => {
+                        setMonth(e.target.value);
+                      }}
                       className={classNames(
-                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                        'block px-4 py-2 text-sm'
+                        active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                        "block px-4 py-2 text-sm"
                       )}
                     >
                       {month}
                     </button>
                   )}
                 </Menu.Item>
-              )
+              );
             })}
           </div>
         </Menu.Items>
       </Transition>
     </Menu>
-  )
+  );
 }

@@ -1,55 +1,52 @@
-import { useEthers, } from '@usedapp/core';
-import { ethers } from 'ethers';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useEffect, useState, } from 'react';
-import { DropdownAccount, ToggleColorMode } from '.';
-import { ConnectWalletButton } from '.'
-import { motion } from 'framer-motion'
-import { Hyperspace } from '../Chains';
-import { useRouter } from 'next/router';
-
-
+import { useEthers } from "@usedapp/core";
+import { ethers } from "ethers";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { DropdownAccount, ToggleColorMode } from ".";
+import { ConnectWalletButton } from ".";
+import { motion } from "framer-motion";
+import { Hyperspace } from "../Chains";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
-  const { account, library, activate, chainId, switchNetwork } = useEthers()
-  const router = useRouter()
+  const { account, library, activate, chainId, switchNetwork } = useEthers();
+  const router = useRouter();
 
   useEffect(() => {
-    const { ethereum } = window
+    const { ethereum } = window;
     const checkMetaMaskConnected = async () => {
       if (ethereum && !library) {
-        var provider = new ethers.providers.Web3Provider(ethereum)
-        const accounts = await provider.listAccounts()
-        const connected = accounts.length > 0
+        var provider = new ethers.providers.Web3Provider(ethereum);
+        const accounts = await provider.listAccounts();
+        const connected = accounts.length > 0;
         if (connected) {
-          activate(provider)
+          activate(provider);
         }
       }
-    }
-    checkMetaMaskConnected()
-  }, [library])
+    };
+    checkMetaMaskConnected();
+  }, [library]);
 
   useEffect(() => {
     async function checkNetwork() {
       if (chainId !== Hyperspace.chainId) {
-        await switchNetwork(Hyperspace.chainId)
+        await switchNetwork(Hyperspace.chainId);
       }
     }
     if (chainId) {
-      checkNetwork()
+      checkNetwork();
     }
-  }, [chainId])
+  }, [chainId]);
 
   useEffect(() => {
     if (!account) {
-      const currentPath = router.pathname
-      if (currentPath !== '/') {
-        router.push('/')
+      const currentPath = router.pathname;
+      if (currentPath !== "/") {
+        router.push("/");
       }
     }
-  }, [account])
-
+  }, [account]);
 
   return (
     <nav className="px-4 py-4 w-full h-fit flex flex-row justify-end ">
@@ -64,12 +61,11 @@ const Navbar = () => {
               initial={{ y: 10, opacity: 0, scale: 0.9 }}
               animate={{ y: 0, opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 1, ease: 'easeOut' }}
+              transition={{ duration: 1, ease: "easeOut" }}
             >
               <ConnectWalletButton />
             </motion.div>
-          )
-          }
+          )}
           {/* <ToggleColorMode /> */}
         </div>
         <motion.div
@@ -79,8 +75,12 @@ const Navbar = () => {
             visible: { opacity: 1, x: 0 },
           }}
           initial="hidden"
-          animate={account ? 'visible' : 'hidden'}
-          style={account ? { justifyContent: 'space-between' } : { justifyContent: 'flex-start' }}
+          animate={account ? "visible" : "hidden"}
+          style={
+            account
+              ? { justifyContent: "space-between" }
+              : { justifyContent: "flex-start" }
+          }
           transition={{ duration: 1 }}
         >
           <Link href="/">
@@ -90,12 +90,10 @@ const Navbar = () => {
               width={69}
               alt="cargoTreeicon"
             />
-            <div
-              className="h-6 relative"
-            >
+            <div className="h-6 relative">
               <Image
-                src={'/Cargo-Credit-FONT.png'}
-                alt='bannerCargo'
+                src={"/Cargo-Credit-FONT.png"}
+                alt="bannerCargo"
                 // css={css}
                 fill
               />
@@ -103,8 +101,8 @@ const Navbar = () => {
           </Link>
         </motion.div>
       </div>
-    </nav >
-  )
-}
+    </nav>
+  );
+};
 
-export default Navbar
+export default Navbar;

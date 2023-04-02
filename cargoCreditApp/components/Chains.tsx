@@ -1,10 +1,8 @@
 import { Chain } from "@usedapp/core";
 
-
-
 export const Hyperspace: Chain = {
   chainId: 3141,
-  chainName: 'Filecoin - Hyperspace testnet',
+  chainName: "Filecoin - Hyperspace testnet",
   isTestChain: true,
   isLocalChain: false,
   multicallAddress: null,
@@ -13,11 +11,11 @@ export const Hyperspace: Chain = {
   getExplorerTransactionLink: (transactionHash: string) =>
     `https://hyperspace.filscan.io/#/message/${transactionHash}`,
   // Optional parameters:
-  rpcUrl: 'https://rpc.ankr.com/filecoin_testnet',
-  blockExplorerUrl: 'https://hyperspace.filfox.info/en',
+  rpcUrl: "https://rpc.ankr.com/filecoin_testnet",
+  blockExplorerUrl: "https://hyperspace.filfox.info/en",
   nativeCurrency: {
-    name: 'Filecoin - hyperspace testnet',
-    symbol: 'tFIL',
+    name: "Filecoin - hyperspace testnet",
+    symbol: "tFIL",
     decimals: 18,
   },
-}
+};

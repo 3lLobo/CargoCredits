@@ -1,6 +1,6 @@
 {
-    "appId": "cargocreditapp-zsdze",
-    "appUrl": "https://realm.mongodb.com/groups/634b1814651bf527d67eea98/apps/634b1a06c79fbc9992f2c234",
-    "baseUrl": "https://realm.mongodb.com",
-    "dataSourceName": "mongodb-atlas"
+  "appId": "cargocreditapp-zsdze",
+  "appUrl": "https://realm.mongodb.com/groups/634b1814651bf527d67eea98/apps/634b1a06c79fbc9992f2c234",
+  "baseUrl": "https://realm.mongodb.com",
+  "dataSourceName": "mongodb-atlas"
 }

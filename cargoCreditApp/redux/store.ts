@@ -1,6 +1,5 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import googleReducer from './GoogleSlice';
-
+import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import googleReducer from "./GoogleSlice";
 
 export const store = configureStore({
   reducer: {
