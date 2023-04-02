@@ -67,9 +67,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     const tx = await transferCargoCredit(address, amountInWei);
-    setTimeout(() => {
-      res.status(200).json({ tx });
-    }, 15000);
+    res.status(200).json({ tx });
   } catch (error) {
     console.log(error);
     res.status(500).json({ error });
