@@ -25,7 +25,7 @@ export default function Layout(props: any) {
           className={montserrat.className + 'flex flex-col bg-mybg-light w-screen h-screen scrollbar-hide overflow-clip'}
         >
           <div
-            className="absolute  w-[30vh] aspect-1 opacity-30 animate-slow-spin flex overflow-clip "
+            className="absolute  w-[36vh] aspect-1 opacity-30 animate-slow-spin flex overflow-clip "
           >
             <Image
               src={'/treeCargo.svg'}
