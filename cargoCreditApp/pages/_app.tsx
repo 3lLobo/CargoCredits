@@ -1,53 +1,36 @@
-import { RealmAppProvider } from '@/components/RealmApp'
-import '@/styles/globals.css'
-import realmconfig from "@/constants/realm.json";
+import "@/styles/globals.css";
 // import { ThemeProvider } from 'next-themes';
-import { Layout } from '@/components/layout';
-import { DAppProvider, Localhost, Chain } from '@usedapp/core'
+import { Layout } from "@/components/layout";
+import { DAppProvider, Localhost, Chain, Config, Goerli } from "@usedapp/core";
+import { Hyperspace } from "@/components/Chains";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import { Provider } from "react-redux";
+import { store } from "../redux/store";
 
-
-export const OptimismGoerli: Chain = {
-  chainId: 420,
-  chainName: 'Optimism Goerli Testnet',
-  isTestChain: true,
-  isLocalChain: false,
-  multicallAddress: '0x0000000000000000000000000000000000000000',
-  getExplorerAddressLink: (address: string) =>
-    `https://blockscout.com/optimism/goerli//address/${address}`,
-  getExplorerTransactionLink: (transactionHash: string) =>
-    `https://blockscout.com/optimism/goerli//tx/${transactionHash}`,
-  // Optional parameters:
-  rpcUrl: 'https://goerli.optimism.io',
-  blockExplorerUrl: 'https://blockscout.com/optimism/goerli',
-  nativeCurrency: {
-    name: 'Optimism Goerli Testnet',
-    symbol: 'ETH',
-    decimals: 18,
-  },
-}
-const config: any = {
-  readOnlyChainId: OptimismGoerli.chainId,
+const config: Config = {
+  readOnlyChainId: Hyperspace.chainId,
   readOnlyUrls: {
-    [OptimismGoerli.chainId]: OptimismGoerli.rpcUrl,
+    [Hyperspace.chainId]: Hyperspace.rpcUrl,
   },
-  networks: [OptimismGoerli],
-}
-
+  networks: [Hyperspace],
+};
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
       {/* <ThemeProvider> */}
+      <Provider store={store}>
         <DAppProvider config={config}>
-          <RealmAppProvider appId={realmconfig.appId}>
+          <GoogleOAuthProvider clientId="256813757677-7hg6m1c6pqg3tvenlbhha3736bt55am2.apps.googleusercontent.com">
             <Layout>
               <Component {...pageProps} />
             </Layout>
-          </RealmAppProvider>
+          </GoogleOAuthProvider>
         </DAppProvider>
+      </Provider>
       {/* </ThemeProvider> */}
     </>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;
