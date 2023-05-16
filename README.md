@@ -2,28 +2,36 @@
 
 Incentive token for green-transport and carbon-offset.
 
-## Roadmap
+## TLDR
 
-The project can be divided in two tracqs.
-One implements the CargoCredit as ERC20 token on OP, this includes designing the logo 🎨
+- [x] Green transport is rewarded with CargoCredits, a token on the Filecoin network. 
+- [x] Web2 api’s provide tracking data. 
+- [x] Carbon-heavy institutions incentivize the token.
 
-The second part focuses on the frontend. Optimally we deliver a demo workflow for a user logging in, the GoogleMaps API fetching the travel history and sending it a express bacqend, where our payMaster wallet distributed the tokens. If we have time we can implement a smart contract to do this instead of an bacqend server.
 
-## Tech-Stacq
+## What it does
+The GoogleMaps Api reveals statistic of monthly movement patterns, including the predicted mode of transport. By granting us access to your stats we will reward you for green travel
 
-- Blockchain ([Optimism(https://www.optimism.io/)]) [ERC20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) Cargo Credit token deployment.
-  - Carbon neutral blockchain.
-- Storing data on IPFS
-  - indexes files via CID (hash) therefore avoids duplicates, saves storage and the planet 🌳
-- [Alchemy](https://dashboard.alchemy.com/) API to query users token balance and history.
-- GoogleMaps API to access users travel history (transportation mode + distance / month).
-- [Chooose](https://www.chooose.today/) API to calculate the carbon offset (saved carbon emission).
-- MongoDB to store anonymized user-chashout data, no personal data, only a hash to avoid users getting rewarded twice.
-- Mongo Realm for oAuth with Google.
-- NextJs for the WebApp, ReactNative for Android/iOS-App and NestJs for the backend.
+![scrn1](https://user-images.githubusercontent.com/25290565/229310761-1353e7ff-6715-4a85-9e25-63765163fdc6.png)
 
-- AMADEUS will implement a CargoCredit API which predicts which parts of your journey you can travel by green transport and how many Cargo Credits you will get rewarded for it 🎉
+Choose for a green transport, you will be rewarded in `CC`.
 
-TEAM smartGirlzGreanEarth LFG🚀🚀🚀
+What is an incentive layer without incentive? Carbon emitters such as the `Filecoin-network`, `Bitcoin` or airlines will offer rewards for our green-planet heroes in exchange for CargoCredits.
 
-![ccBannerHq](https://user-images.githubusercontent.com/25290565/195901960-80604c1c-61fd-420b-818a-c8502fde8325.jpg)
+## How we `BUIDL` it
+
+WebDApp which connect to your Filecoin wallet and OAuth2'es into your Google account to fetch the travel data.
+Mileage is converted via a high dimensinal algorithm into a reward sum.
+Sum can be redeemed from the TokenMaster to your account.
+
+
+Contracts are deployed on `Filecoin - Hyperspace`
+- Cargo Credit Token contracts: `0x964d176Cf1641CF4d73E44e4382DA48027346Eb7`
+- Token Master: `0x79a838a70bf9c690baf1f5e10de57c2c1f50e371`
+
+## What's next for Cargo Credits
+
+I'm gonna be that dude biking to worq everyday.
+Let's hope Google colabs on developing a onchain verification of the travel data and Filecoin adopts the Cargo Credit for its green footprint 🐾
+
+![treeCargo](https://user-images.githubusercontent.com/25290565/229379814-8efa62db-91f8-4a71-bb29-8396d093f608.svg)
